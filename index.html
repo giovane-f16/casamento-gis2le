@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Casamento Gis2le — Calendário 2026/2027</title>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -19,24 +20,38 @@
     --card: #fffdfa;
   }
 
-  *{box-sizing:border-box;}
+  *{
+    box-sizing:border-box;
+  }
+
   body{
     margin:0;
     background:
-      radial-gradient(ellipse at top left, #fbf6f1 0%, var(--paper) 55%);
+      radial-gradient(
+        ellipse at top left,
+        #fbf6f1 0%,
+        var(--paper) 55%
+      );
     color:var(--ink);
     font-family:'Jost', sans-serif;
     padding:48px 24px 80px;
   }
 
-  .wrap{max-width:1180px;margin:0 auto;}
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+  }
 
-  /* HERO */
+  /* =========================
+     HERO
+  ========================= */
+
   .hero{
     text-align:center;
     margin-bottom:56px;
     position:relative;
   }
+
   .hero .eyebrow{
     font-family:'Jost',sans-serif;
     letter-spacing:.35em;
@@ -45,6 +60,7 @@
     color:var(--rose-deep);
     font-weight:500;
   }
+
   .hero h1{
     font-family:'Cormorant Garamond', serif;
     font-weight:600;
@@ -53,46 +69,101 @@
     color:var(--ink);
     letter-spacing:.01em;
   }
+
   .hero h1 em{
     font-style:italic;
     color:var(--rose);
   }
+
   .hero .sub{
     font-size:14px;
     color:var(--ink-soft);
     letter-spacing:.05em;
   }
-  .vine{
-    width:220px;height:14px;margin:18px auto 0;
-    display:flex;align-items:center;justify-content:center;gap:8px;
-  }
-  .vine::before,.vine::after{
-    content:'';height:1px;flex:1;background:var(--line);
-  }
-  .vine .leaf{width:8px;height:8px;border-radius:0 60% 0 60%;background:var(--sage);transform:rotate(20deg);}
 
-  /* YEAR HEADER */
+  .vine{
+    width:220px;
+    height:14px;
+    margin:18px auto 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+  }
+
+  .vine::before,
+  .vine::after{
+    content:'';
+    height:1px;
+    flex:1;
+    background:var(--line);
+  }
+
+  .vine .leaf{
+    width:8px;
+    height:8px;
+    border-radius:0 60% 0 60%;
+    background:var(--sage);
+    transform:rotate(20deg);
+  }
+
+  /* =========================
+     YEAR HEADER
+  ========================= */
+
   .year-header{
-    display:flex;align-items:baseline;gap:16px;
+    display:flex;
+    align-items:baseline;
+    gap:16px;
     margin:64px 0 24px;
   }
+
   .year-header .num{
     font-family:'Cormorant Garamond',serif;
-    font-size:56px;font-weight:600;color:var(--rose-deep);line-height:1;
-  }
-  .year-header .rule{flex:1;height:1px;background:var(--line);}
-  .year-header .tag{
-    font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+    font-size:56px;
+    font-weight:600;
+    color:var(--rose-deep);
+    line-height:1;
   }
 
-  /* GRID */
+  .year-header .rule{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .year-header .tag{
+    font-size:12px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* =========================
+     GRID
+  ========================= */
+
   .grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:16px;
   }
-  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:480px){.grid{grid-template-columns:1fr;}}
+
+  @media (max-width:900px){
+    .grid{
+      grid-template-columns:repeat(2,1fr);
+    }
+  }
+
+  @media (max-width:480px){
+    .grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  /* =========================
+     MONTH CARD
+  ========================= */
 
   .month{
     background:var(--card);
@@ -103,37 +174,88 @@
     position:relative;
     display:flex;
     flex-direction:column;
-    transition:transform .15s ease, box-shadow .15s ease;
+    transition:
+      transform .15s ease,
+      box-shadow .15s ease;
   }
-  .month:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(90,60,50,.25);}
+
+  .month:hover{
+    transform:translateY(-2px);
+    box-shadow:
+      0 10px 24px -12px rgba(90,60,50,.25);
+  }
 
   .month .m-name{
     font-family:'Cormorant Garamond',serif;
-    font-size:22px;font-weight:600;color:var(--ink);
+    font-size:22px;
+    font-weight:600;
+    color:var(--ink);
   }
+
   .month .m-year{
-    font-size:10px;letter-spacing:.15em;color:var(--ink-soft);text-transform:uppercase;
+    font-size:10px;
+    letter-spacing:.15em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
   }
+
+  /* =========================
+     EMPTY MONTH
+  ========================= */
 
   .month.empty{
     background:transparent;
     border-style:dashed;
     border-color:#e3d6c8;
   }
-  .month.empty .m-name{color:#b6a996;}
-  .month .placeholder{
-    margin-top:auto;
-    font-size:11px;color:#c4b6a5;font-style:italic;
+
+  .month.empty .m-name{
+    color:#b6a996;
   }
 
-  .badge{
-    position:absolute;top:14px;right:14px;
-    font-size:9px;letter-spacing:.1em;text-transform:uppercase;
-    padding:3px 8px;border-radius:10px;font-weight:500;
+  .month .placeholder{
+    margin-top:auto;
+    font-size:11px;
+    color:#c4b6a5;
+    font-style:italic;
   }
-  .badge.done{background:#e7ede1;color:var(--sage-deep);}
-  .badge.progress{background:#f3e6c9;color:#8a6a24;}
-  .badge.plan{background:#f2e3e6;color:var(--rose-deep);}
+
+  /* =========================
+     BADGES
+  ========================= */
+
+  .badge{
+    position:absolute;
+    top:14px;
+    right:14px;
+
+    font-size:9px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+
+    padding:3px 8px;
+    border-radius:10px;
+    font-weight:500;
+  }
+
+  .badge.done{
+    background:#e7ede1;
+    color:var(--sage-deep);
+  }
+
+  .badge.progress{
+    background:#f3e6c9;
+    color:#8a6a24;
+  }
+
+  .badge.plan{
+    background:#f2e3e6;
+    color:var(--rose-deep);
+  }
+
+  /* =========================
+     TASKS
+  ========================= */
 
   .task{
     margin-top:14px;
@@ -142,104 +264,467 @@
     color:var(--ink);
     font-weight:400;
   }
-  .task .icon{margin-right:4px;}
 
-  .month.filled{border-color:transparent;}
+  .task + .task{
+    margin-top:2px;
+  }
+
+  .task .icon{
+    margin-right:4px;
+  }
+
+  /* =========================
+     FILLED / MILESTONE
+  ========================= */
+
+  .month.filled{
+    border-color:transparent;
+  }
+
   .month.milestone{
-    background:linear-gradient(180deg,#fffdfa 0%, #fbf3ee 100%);
+    background:
+      linear-gradient(
+        180deg,
+        #fffdfa 0%,
+        #fbf3ee 100%
+      );
     border:1px solid var(--rose);
   }
-  .month.milestone.sage-border{border-color:var(--sage);}
-  .month.milestone.gold-border{border-color:var(--gold);}
+
+  .month.milestone.sage-border{
+    border-color:var(--sage);
+  }
+
+  .month.milestone.gold-border{
+    border-color:var(--gold);
+  }
+
+  /* =========================
+     FOOTER
+  ========================= */
 
   footer{
-    text-align:center;margin-top:64px;color:var(--ink-soft);font-size:12px;letter-spacing:.05em;
+    text-align:center;
+    margin-top:64px;
+    color:var(--ink-soft);
+    font-size:12px;
+    letter-spacing:.05em;
   }
-  footer .leaf-row{display:flex;justify-content:center;gap:6px;margin-bottom:10px;}
-  footer .leaf-row span{width:6px;height:6px;background:var(--sage);border-radius:0 60% 0 60%;}
+
+  footer .leaf-row{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin-bottom:10px;
+  }
+
+  footer .leaf-row span{
+    width:6px;
+    height:6px;
+    background:var(--sage);
+    border-radius:0 60% 0 60%;
+  }
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
 
+  <!-- =========================
+       HERO
+  ========================= -->
+
   <div class="hero">
-    <div class="eyebrow">Linha do tempo · Planejamento</div>
-    <h1>Casamento <em>Gis2le</em></h1>
-    <div class="sub">Calendário 2026 — 2027</div>
-    <div class="vine"><span class="leaf"></span></div>
+
+    <div class="eyebrow">
+      Linha do tempo · Planejamento
+    </div>
+
+    <h1>
+      Casamento <em>Gis2le</em>
+    </h1>
+
+    <div class="sub">
+      Calendário 2026 — 2027
+    </div>
+
+    <div class="vine">
+      <span class="leaf"></span>
+    </div>
+
   </div>
 
-  <!-- 2026 -->
+
+  <!-- =========================
+       2026
+  ========================= -->
+
   <div class="year-header">
-    <div class="num">2026</div>
+
+    <div class="num">
+      2026
+    </div>
+
     <div class="rule"></div>
-    <div class="tag">Ano um</div>
+
+    <div class="tag">
+      Ano um
+    </div>
+
   </div>
+
   <div class="grid" id="grid-2026"></div>
 
-  <!-- 2027 -->
+
+  <!-- =========================
+       2027
+  ========================= -->
+
   <div class="year-header">
-    <div class="num">2027</div>
+
+    <div class="num">
+      2027
+    </div>
+
     <div class="rule"></div>
-    <div class="tag">Ano do sim</div>
+
+    <div class="tag">
+      Ano do sim
+    </div>
+
   </div>
+
   <div class="grid" id="grid-2027"></div>
 
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
-    <div class="leaf-row"><span></span><span></span><span></span></div>
+
+    <div class="leaf-row">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     Preencha os meses em branco conforme o planejamento avançar
+
   </footer>
 
 </div>
 
+
 <script>
-const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
 
-const data2026 = {
-  3: { task: "Compra do apartamento", badge: "done", icon: "✓", style:"sage-border" },    // Abril
-  4: { task: "Pedido de casamento", badge: "done", icon: "♥", style:"sage-border" },      // Maio
-  5: { task: "Entrega das chaves do apartamento", badge: "done", icon: "✓", style:"sage-border" }, // Junho
-  6: { task: "Piso do apartamento", badge: "done", icon: "✓", style:"sage-border" },      // Julho (index 6)
-  7: { task: "Instalação de pedras", badge: "progress", icon: "◐", style:"gold-border" },  // Agosto
-  8: { task: "Pintura + Instalação dos rodapés", badge: "progress", icon: "◐", style:"gold-border" },               // Setembro
-  9: { task: "Planejados", badge: "plan", icon: "◇" },                                     // Outubro
-  11: { task: "Chá de panela?", badge: "plan", icon: "◇" },                                // Dezembro
-};
+  /* =========================
+     MESES
+  ========================= */
 
-const data2027 = {
-  0: { task: "Reserva do local + save the date para convidados", badge: "plan", icon: "◇" }, // Janeiro
-  7: { task: "Entrada no processo de habilitação do casamento civil no cartório", badge: "plan", icon: "◇" }, // Agosto
-  9: { task: "Casamento no cartório + festa", badge: "done", icon: "♥", style:"sage-border" }, // Outubro
-};
+  const monthNames = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro"
+  ];
 
-function badgeLabel(b){
-  if(b==="done") return "Concluído";
-  if(b==="progress") return "Em andamento";
-  if(b==="plan") return "Planejado";
-  return "";
-}
 
-function buildGrid(containerId, year, data){
-  const el = document.getElementById(containerId);
-  monthNames.forEach((name, i) => {
-    const info = data[i];
-    const card = document.createElement('div');
-    card.className = 'month' + (info ? ' filled milestone ' + (info.style||'') : ' empty');
+  /* =========================
+     DADOS 2026
+  ========================= */
 
-    let inner = `<div class="m-year">${year}</div><div class="m-name">${name}</div>`;
-    if(info){
-      inner += `<div class="badge ${info.badge}">${badgeLabel(info.badge)}</div>`;
-      inner += `<div class="task"><span class="icon">${info.icon}</span>${info.task}</div>`;
-    } else {
-      inner += `<div class="placeholder">a preencher</div>`;
+  const data2026 = {
+
+    // Abril
+    3: {
+      task: "Compra do apartamento",
+      badge: "done",
+      icon: "✓",
+      style: "sage-border"
+    },
+
+    // Maio
+    4: {
+      task: "Pedido de casamento",
+      badge: "done",
+      icon: "♥",
+      style: "sage-border"
+    },
+
+    // Junho
+    5: {
+      task: "Entrega das chaves do apartamento",
+      badge: "done",
+      icon: "✓",
+      style: "sage-border"
+    },
+
+    // Julho
+    6: {
+      task: "Instalação do porcelanato",
+      badge: "done",
+      icon: "✓",
+      style: "sage-border"
+    },
+
+    // Agosto
+    7: {
+      task: "Instalação das pedras",
+      badge: "progress",
+      icon: "◐",
+      style: "gold-border"
+    },
+
+    // Setembro
+    8: {
+      tasks: [
+        {
+          text: "Pintura",
+          icon: "◐"
+        },
+        {
+          text: "Instalação do rodapé",
+          icon: "◐"
+        }
+      ],
+      badge: "progress",
+      style: "gold-border"
+    },
+
+    // Outubro
+    9: {
+      task: "Escolher planejados",
+      badge: "progress",
+      icon: "◐",
+      style: "gold-border"
+    },
+
+    // Novembro
+    10: {
+      task: "Instalação planejados",
+      badge: "progress",
+      icon: "◐",
+      style: "gold-border"
+    },
+
+    // Dezembro
+    11: {
+      task: "Chá de panela",
+      badge: "progress",
+      icon: "◐",
+      style: "gold-border"
     }
-    card.innerHTML = inner;
-    el.appendChild(card);
-  });
-}
 
-buildGrid('grid-2026', 2026, data2026);
-buildGrid('grid-2027', 2027, data2027);
+  };
+
+
+  /* =========================
+     DADOS 2027
+  ========================= */
+
+  const data2027 = {
+
+    // Janeiro
+    0: {
+      tasks: [
+        {
+          text: "Reserva do local",
+          icon: "◐"
+        },
+        {
+          text: "Enviar save the date do casamento para convidados",
+          icon: "◐"
+        }
+      ],
+      badge: "progress",
+      style: "gold-border"
+    },
+
+    // Agosto
+    7: {
+      task: "Entrada no processo de habilitação do casamento civil no cartório",
+      badge: "progress",
+      icon: "◐",
+      style: "gold-border"
+    },
+
+    // Outubro
+    9: {
+      tasks: [
+        {
+          text: "Casamento no cartório",
+          icon: "◐"
+        },
+        {
+          text: "Festa simples",
+          icon: "◐"
+        }
+      ],
+      badge: "progress",
+      style: "gold-border"
+    }
+
+  };
+
+
+  /* =========================
+     BADGE LABEL
+  ========================= */
+
+  function badgeLabel(b){
+
+    if(b === "done"){
+      return "Concluído";
+    }
+
+    if(b === "progress"){
+      return "Em andamento";
+    }
+
+    if(b === "plan"){
+      return "Planejado";
+    }
+
+    return "";
+
+  }
+
+
+  /* =========================
+     CRIAÇÃO DOS CARDS
+  ========================= */
+
+  function buildGrid(containerId, year, data){
+
+    const el = document.getElementById(containerId);
+
+    monthNames.forEach((name, i) => {
+
+      const info = data[i];
+
+      const card = document.createElement("div");
+
+      card.className =
+        "month" +
+        (
+          info
+            ? " filled milestone " + (info.style || "")
+            : " empty"
+        );
+
+
+      /* =========================
+         CABEÇALHO DO MÊS
+      ========================= */
+
+      let inner = `
+        <div class="m-year">${year}</div>
+        <div class="m-name">${name}</div>
+      `;
+
+
+      /* =========================
+         MÊS PREENCHIDO
+      ========================= */
+
+      if(info){
+
+        inner += `
+          <div class="badge ${info.badge}">
+            ${badgeLabel(info.badge)}
+          </div>
+        `;
+
+
+        /*
+          Se o mês tiver várias tarefas,
+          cria um .task para cada uma.
+        */
+
+        if(info.tasks && Array.isArray(info.tasks)){
+
+          inner += info.tasks.map(task => {
+
+            return `
+              <div class="task">
+                <span class="icon">${task.icon}</span>${task.text}
+              </div>
+            `;
+
+          }).join("");
+
+        }
+
+
+        /*
+          Caso tenha apenas uma tarefa,
+          mantém o formato original.
+        */
+
+        else if(info.task){
+
+          inner += `
+            <div class="task">
+              <span class="icon">${info.icon || ""}</span>${info.task}
+            </div>
+          `;
+
+        }
+
+      }
+
+
+      /* =========================
+         MÊS VAZIO
+      ========================= */
+
+      else{
+
+        inner += `
+          <div class="placeholder">
+            a preencher
+          </div>
+        `;
+
+      }
+
+
+      card.innerHTML = inner;
+
+      el.appendChild(card);
+
+    });
+
+  }
+
+
+  /* =========================
+     RENDERIZAÇÃO
+  ========================= */
+
+  buildGrid(
+    "grid-2026",
+    2026,
+    data2026
+  );
+
+  buildGrid(
+    "grid-2027",
+    2027,
+    data2027
+  );
+
 </script>
+
 </body>
 </html>
